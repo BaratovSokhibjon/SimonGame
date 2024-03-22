@@ -32,8 +32,10 @@ function nextSequence(){
     let randomNumber = Math.floor((Math.random() * 4));
     let randomChoosenColour = buttonColours[randomNumber];
     gamePattern.push(randomChoosenColour);
-    $("#" + randomChoosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
-    playSound(randomChoosenColour);        
+    setTimeout(() => {
+        $("#" + randomChoosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+        playSound(randomChoosenColour);     
+    }, 600);   
 }
 
 
