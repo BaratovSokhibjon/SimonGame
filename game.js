@@ -5,6 +5,17 @@ let userClickedPattern = [];
 
 var started = false;
 var level = 0;
+
+$(".btn-start").on("click", function(){
+    if(!started){
+        
+        $("#level-title").text("Level " + level);
+        nextSequence();
+        started = true;
+    }
+    $(".btn-start").fadeToggle();
+} )
+
 $(document).keypress(function(){
     if(!started){
         
@@ -61,7 +72,6 @@ function startOver(){
 
 function checkAnswer(currentLevel){
     if(userClickedPattern[currentLevel] === gamePattern[currentLevel]){
-        console.log("Pass");
         if(userClickedPattern.length === gamePattern.length){
             setTimeout(nextSequence(), 1000);
             userClickedPattern = [];
@@ -79,9 +89,13 @@ function checkAnswer(currentLevel){
         $("#level-title").text("Game Over, press any key to restart!");
 
         startOver();
+
+        $(".btn-start").fadeToggle();
         
     }
 }
+
+
 
 
 
